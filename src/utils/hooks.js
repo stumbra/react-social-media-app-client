@@ -5,7 +5,9 @@ export const useForm = (callback, initialState = {}) => {
   const [values, setValues] = useState(initialState);
 
   const onChange = (event) => {
-    setValues({ ...values, [event.target.name]: event.target.value });
+    if (event.target.name === 'profileImage')
+      setValues({ ...values, [event.target.name]: event.target.src });
+    else setValues({ ...values, [event.target.name]: event.target.value });
   };
 
   const onSubmit = (event) => {

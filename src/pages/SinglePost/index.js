@@ -35,7 +35,17 @@ function SinglePost({
 
   if (!post) return <p>Loading post...</p>;
 
-  const { username, createdAt, body, id, likes, likeCount, commentCount, comments } = post;
+  const {
+    username,
+    createdAt,
+    body,
+    id,
+    likes,
+    likeCount,
+    commentCount,
+    comments,
+    profileImage,
+  } = post;
 
   const deletePostCallback = () => push('/');
 
@@ -43,11 +53,7 @@ function SinglePost({
     <Grid>
       <Grid.Row>
         <Grid.Column width={2}>
-          <Image
-            floated="right"
-            size="small"
-            src="https://react.semantic-ui.com/images/avatar/large/molly.png"
-          />
+          <Image floated="right" size="small" src={profileImage} circular />
         </Grid.Column>
         <Grid.Column width={10}>
           <Card fluid>
